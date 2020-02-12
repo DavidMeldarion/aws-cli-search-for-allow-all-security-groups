@@ -1,2 +1,2 @@
 # aws-cli-search-for-allow-all-security-groups
- 
+# This bash script was created to find any potential issues in AWS with security groups that had rules which allowed 0.0.0.0/0 access. Because you can't query directly on instances for open rules, you first have to find the list of security groups that have a rule which allows 0.0.0.0/0 access. Then you have to use that list in a for loop to query the instances to find any instances that have 0.0.0.0/0 security groups attached. However, if you have ELB or other resources attached to said security groups, using the "describe-instances" command won't work to find those. So, you have to query for network interfaces that have the security groups attached.
